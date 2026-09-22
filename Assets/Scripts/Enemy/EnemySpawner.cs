@@ -16,9 +16,9 @@ public class EnemySpawner : MonoBehaviour
 
      float currentSpawnRateTimer;
 
-    float spawnRateTimer = 1;
+    float spawnRateTimer = 5;
 
-     int maxAmountOfEnemies = 8;
+     int maxAmountOfEnemies = 3;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

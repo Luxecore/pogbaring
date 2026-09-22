@@ -13,6 +13,8 @@ public class PlayerAttack : MonoBehaviour
    public GameObject closestEnemy;
 
     float shootTimer;
+
+    GameObject enemyToShootAt;
     
 
 
@@ -31,12 +33,12 @@ public class PlayerAttack : MonoBehaviour
 
         
     }
-
+    //Visar bara range
     private void OnDrawGizmos()
     { Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, _projectileData.range);
     }
-
+   
     void AddEnemiesToList()
     {
         GameObject[] FoundEnemy = GameObject.FindGameObjectsWithTag("Enemy");
@@ -44,30 +46,44 @@ public class PlayerAttack : MonoBehaviour
         {
             if (enemy != null && !Enemies.Contains(enemy))
                 Enemies.Add(enemy);
-
+            
+                
         }
     }
 
     void FindClosestEnemy()
     {
          closestEnemy = null;
+         enemyToShootAt = null;
         float closestDistance = _projectileData.range;
         foreach(GameObject enemy in Enemies)
         {
+            //Kolla in på hur man tar bort ett object från en lista (detta är inte optimiserat)
+            if(enemy == null)
+            {
+                Enemies.Remove(enemy);
+                
+            }
             float distanceFromEnemy = Vector2.Distance(transform.position, enemy.transform.position);
             if(distanceFromEnemy < closestDistance)
             {
+
                 closestDistance = distanceFromEnemy;
                 closestEnemy = enemy;
+                enemyToShootAt = closestEnemy;
+            
             }
         }
     }
 
     void ShootProjectile()
-    {
+    {  
+        //Can't shoot if enemy isn't in the list
+        if(enemyToShootAt == null)
+            return;
         GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
 
-        Vector2 direction = (closestEnemy.transform.position - pogbaShoot.position).normalized;
+        Vector2 direction = (enemyToShootAt.transform.position - pogbaShoot.position).normalized;
 
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         rb.linearVelocity = direction * _projectileData.projectileSpeed;

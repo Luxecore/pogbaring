@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 969278f5df93a54458506b4d9df0b628, type: 3}
-  m_Name: Enemy1Data
+  m_Name: Skata
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   range: 5
   health: 10

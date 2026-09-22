@@ -3,6 +3,8 @@ using UnityEngine;
 public class PukeScript : MonoBehaviour
 {
     [SerializeField] ProjectileData projectileData;
+
+    EnemyAttack enemyAttack;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,7 +22,11 @@ public class PukeScript : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
+            enemyAttack = (EnemyAttack)collision.GetComponent<EnemyAttack>();
+            enemyAttack.enemyHealth -= projectileData.damage;
             Destroy(gameObject);
+            
+
         }
     }
 }
