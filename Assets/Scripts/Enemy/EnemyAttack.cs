@@ -21,7 +21,7 @@ public class EnemyAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("den träffade");
+        
         if (other.CompareTag("Pogba"))
         {
             PlayerHealth player = other.GetComponent<PlayerHealth>();

@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
     {
        
         health -= damage;
-        Debug.Log("Player took " + damage + "damage");
+        Debug.Log("Player took " + damage + " damage");
 
         if(health <= 0)
         {

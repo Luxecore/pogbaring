@@ -1,22 +1,22 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PlayerAttack : MonoBehaviour
 {
     List<GameObject>Enemies = new List<GameObject>();
 
-    [SerializeField] ProjectileData _projectileData;
+    [SerializeField]  ProjectileData _projectileData;
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] Transform pogbaShoot;
 
    public GameObject closestEnemy;
 
-    float shootTimer;
+     float shootTimer;
 
     GameObject enemyToShootAt;
-    
 
+    [SerializeField] Image pukeCooldown;
 
     // Update is called once per frame
     void Update()
@@ -24,7 +24,8 @@ public class PlayerAttack : MonoBehaviour
         AddEnemiesToList();
         FindClosestEnemy();
 
-     shootTimer -= Time.deltaTime;
+        shootTimer -= Time.deltaTime;
+        pukeCooldown.fillAmount = 1f - (shootTimer / _projectileData.projectileRate);
         if (closestEnemy != null && shootTimer <= 0f)
         {
             ShootProjectile();
@@ -77,13 +78,21 @@ public class PlayerAttack : MonoBehaviour
     }
 
     void ShootProjectile()
-    {  
-        //Can't shoot if enemy isn't in the list
-        if(enemyToShootAt == null)
+    {
+        if (enemyToShootAt == null)
             return;
-        GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
 
         Vector2 direction = (enemyToShootAt.transform.position - pogbaShoot.position).normalized;
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        Quaternion rotation = Quaternion.Euler(0, 0, angle);
+
+        GameObject projectile = Instantiate(
+            projectilePrefab,
+            transform.position,
+            rotation
+        );
 
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         rb.linearVelocity = direction * _projectileData.projectileSpeed;
