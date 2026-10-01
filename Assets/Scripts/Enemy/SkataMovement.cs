@@ -3,7 +3,7 @@ using UnityEngine.AI;
 using static UnityEditor.Experimental.GraphView.GraphView;
 using static UnityEngine.GraphicsBuffer;
 
-public class EnemyMovement : MonoBehaviour
+public class SkataMovement : MonoBehaviour
 {
     Transform target;
     NavMeshAgent agent;

@@ -1,0 +1,66 @@
+using UnityEngine;
+
+public class PilfinkAttack : MonoBehaviour
+{
+    [SerializeField] EnemyData enemyData;
+
+    
+    public int pilfinkHealth;
+
+   
+    [SerializeField] GameObject projectilePrefab;
+    [SerializeField] GameObject shootPoint;
+     float attackRange;
+     float fireRate = 2f;
+     float projectileSpeed = 10f;
+
+    Transform target;
+    float nextFireTime;
+
+    void Start()
+    {
+        pilfinkHealth = enemyData.health;
+
+        target = GameObject.Find("Pogba").transform;
+
+        attackRange = enemyData.range;
+    }
+
+    void Update()
+    {
+        if (pilfinkHealth <= 0)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        float distance = Vector3.Distance(transform.position, target.position);
+
+        // Check if player is within attack range
+        if (distance <= attackRange)
+        {
+            Attack();
+        }
+    }
+
+    void Attack()
+    {
+        if (Time.time >= nextFireTime)
+        {
+            nextFireTime = Time.time + fireRate;
+
+            Vector3 direction =
+                (target.position - shootPoint.transform.position).normalized;
+
+            GameObject projectile = Instantiate(
+                projectilePrefab,
+                shootPoint.transform.position,
+                Quaternion.identity
+            );
+
+            Projectile projectileScript = projectile.GetComponent<Projectile>();
+
+            projectileScript.SetDirection(direction);
+        }
+    }
+}

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -10,7 +11,6 @@ public class PlayerHealth : MonoBehaviour
     {
        
         health -= damage;
-        Debug.Log("Player took " + damage + " damage");
 
         if(health <= 0)
         {
@@ -20,6 +20,6 @@ public class PlayerHealth : MonoBehaviour
 
     public void Die()
     {
-        Debug.Log("Player died!");
+        SceneManager.LoadScene(0);
     }
 }

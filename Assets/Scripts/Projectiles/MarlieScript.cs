@@ -49,7 +49,7 @@ public class MarlieScript : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             enemyAttack = (EnemyAttack)collision.GetComponent<EnemyAttack>();
-            enemyAttack.enemyHealth -= projectileData.damage;
+            enemyAttack.skataHealth -= projectileData.damage;
            
         }
 

@@ -286,6 +286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   enemies:
   - {fileID: 5682705172855146230, guid: a033f3b8eeaaa8c4d8dfc9bf9bd8ca8b, type: 3}
+  - {fileID: 0}
 --- !u!61 &174226926
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -332,6 +333,63 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 48, y: 26}
   m_EdgeRadius: 0
+--- !u!1001 &309978384
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 397095013902587865, guid: d5d0252bc8278e0438be152e9bccaca3, type: 3}
+      propertyPath: m_Name
+      value: Pilfink
+      objectReference: {fileID: 0}
+    - target: {fileID: 2029399848172359529, guid: d5d0252bc8278e0438be152e9bccaca3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.438259
+      objectReference: {fileID: 0}
+    - target: {fileID: 2029399848172359529, guid: d5d0252bc8278e0438be152e9bccaca3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.6556163
+      objectReference: {fileID: 0}
+    - target: {fileID: 2029399848172359529, guid: d5d0252bc8278e0438be152e9bccaca3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2029399848172359529, guid: d5d0252bc8278e0438be152e9bccaca3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2029399848172359529, guid: d5d0252bc8278e0438be152e9bccaca3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2029399848172359529, guid: d5d0252bc8278e0438be152e9bccaca3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2029399848172359529, guid: d5d0252bc8278e0438be152e9bccaca3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2029399848172359529, guid: d5d0252bc8278e0438be152e9bccaca3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2029399848172359529, guid: d5d0252bc8278e0438be152e9bccaca3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2029399848172359529, guid: d5d0252bc8278e0438be152e9bccaca3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5d0252bc8278e0438be152e9bccaca3, type: 3}
 --- !u!1 &427656004
 GameObject:
   m_ObjectHideFlags: 0
@@ -15569,7 +15627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8607110888005904679, guid: 58c7705c5cbdcc546ac2fa4a71762852, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.555992
+      value: -17.5
       objectReference: {fileID: 0}
     - target: {fileID: 8607110888005904679, guid: 58c7705c5cbdcc546ac2fa4a71762852, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15700,8 +15758,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a254a175fa75fe4ba3c3977a109f460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponCooldownVisuals
-  shootTimer: {fileID: 0}
-  pukeCooldown: {fileID: 1968901283}
 --- !u!1 &2066705059
 GameObject:
   m_ObjectHideFlags: 0
@@ -15737,7 +15793,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -890.99817, y: 50.430603}
+  m_AnchoredPosition: {x: -890.99805, y: 50.430664}
   m_SizeDelta: {x: -1781.9963, y: -612.9254}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2066705061
@@ -15870,3 +15926,4 @@ SceneRoots:
   - {fileID: 1756231879}
   - {fileID: 449000304}
   - {fileID: 1967247284}
+  - {fileID: 309978384}

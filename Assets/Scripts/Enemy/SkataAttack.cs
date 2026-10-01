@@ -4,18 +4,18 @@ public class EnemyAttack : MonoBehaviour
 {
     [SerializeField] EnemyData _enemyData;
 
-    public int enemyHealth;
+    public int skataHealth;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        enemyHealth  = _enemyData.health;
+        skataHealth  = _enemyData.health;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(enemyHealth <= 0) 
+        if(skataHealth <= 0) 
             Destroy(gameObject);
     }
 
