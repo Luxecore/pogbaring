@@ -75,7 +75,8 @@ public class EnemySpawner : MonoBehaviour
 
             if (IsInPlayerArea(spawnPosition))
             {
-                Instantiate(enemies[0], spawnPosition, Quaternion.identity);
+                int whatEnemy = Random.Range(0,enemies.Length);
+                Instantiate(enemies[whatEnemy], spawnPosition, Quaternion.identity);
                 enemiesSpawned++;
             }
 

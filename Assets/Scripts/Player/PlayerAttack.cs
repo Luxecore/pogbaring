@@ -57,6 +57,12 @@ public class PlayerAttack : MonoBehaviour
          closestEnemy = null;
          enemyToShootAt = null;
         float closestDistance = _projectileData.range;
+
+        for (int i = Enemies.Count - 1; i >= 0; i--)
+        {
+            if (Enemies[i] == null) Enemies.RemoveAt(i);
+        }
+
         foreach(GameObject enemy in Enemies)
         {
             //Kolla in på hur man tar bort ett object från en lista (detta är inte optimiserat)

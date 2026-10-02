@@ -4,29 +4,22 @@ public class PukeScript : MonoBehaviour
 {
     [SerializeField] ProjectileData projectileData;
 
-    EnemyAttack enemyAttack;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Destroy(gameObject, projectileData.projectileLifetime);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
         {
-            enemyAttack = (EnemyAttack)collision.GetComponent<EnemyAttack>();
-            enemyAttack.skataHealth -= projectileData.damage;
-            Destroy(gameObject);
-            
+            IDamageable enemy = collision.GetComponent<IDamageable>();
 
+            if (enemy != null)
+            {
+                enemy.TakeDmg(projectileData.damage);
+                Destroy(gameObject);
+            }
         }
     }
 }

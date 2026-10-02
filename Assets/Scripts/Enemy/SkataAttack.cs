@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyAttack : MonoBehaviour
+public class SkataAttack : MonoBehaviour , IDamageable
 {
     [SerializeField] EnemyData _enemyData;
 
@@ -17,6 +17,11 @@ public class EnemyAttack : MonoBehaviour
     {
         if(skataHealth <= 0) 
             Destroy(gameObject);
+    }
+
+    public void TakeDmg(int damage)
+    {
+       skataHealth -= damage;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

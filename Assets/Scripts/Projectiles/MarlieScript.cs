@@ -4,14 +4,12 @@ public class MarlieScript : MonoBehaviour
 {
     [SerializeField] ProjectileData projectileData;
 
-    EnemyAttack enemyAttack;
-
     [Header("Movement")]
     private float moveSpeed = 10f;
 
     [Header("Player Following")]
-
     [SerializeField] private float yOffset = 0f;
+
     private GameObject player;
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
@@ -43,14 +41,16 @@ public class MarlieScript : MonoBehaviour
         rb.MovePosition(newPosition);
     }
 
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
         {
-            enemyAttack = (EnemyAttack)collision.GetComponent<EnemyAttack>();
-            enemyAttack.skataHealth -= projectileData.damage;
-           
+            IDamageable enemy = collision.GetComponentInParent<IDamageable>();
+
+            if (enemy != null)
+            {
+                enemy.TakeDmg(projectileData.damage);
+            }
         }
 
         if (collision.CompareTag("WorldBoarder"))
@@ -58,6 +58,7 @@ public class MarlieScript : MonoBehaviour
             TurnAround();
         }
     }
+
     private void TurnAround()
     {
         direction *= -1;

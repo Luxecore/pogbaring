@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PilfinkAttack : MonoBehaviour
+public class PilfinkAttack : MonoBehaviour, IDamageable
 {
     [SerializeField] EnemyData enemyData;
 
@@ -12,7 +12,7 @@ public class PilfinkAttack : MonoBehaviour
     [SerializeField] GameObject shootPoint;
      float attackRange;
      float fireRate = 2f;
-     float projectileSpeed = 10f;
+     
 
     Transform target;
     float nextFireTime;
@@ -62,5 +62,10 @@ public class PilfinkAttack : MonoBehaviour
 
             projectileScript.SetDirection(direction);
         }
+    }
+
+    public void TakeDmg(int damage)
+    {
+        pilfinkHealth -= damage;
     }
 }
