@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bec955b0817fc7143ba621a406cf97da, type: 3}
   m_Name: PukeProjectileData
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileData
-  damage: 5
+  damage: 50
   projectileSpeed: 5
   projectileRate: 2
   projectileLifetime: 2

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bec955b0817fc7143ba621a406cf97da, type: 3}
   m_Name: MarlieData
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileData
-  damage: 10
+  damage: 100
   projectileSpeed: 20
   projectileRate: 0
   projectileLifetime: 0

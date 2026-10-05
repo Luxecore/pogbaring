@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Pilfink
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   range: 5
-  health: 5
+  health: 50
   damage: 5
