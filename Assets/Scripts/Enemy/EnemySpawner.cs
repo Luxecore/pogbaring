@@ -12,7 +12,9 @@ public class EnemySpawner : MonoBehaviour
 
    [SerializeField] GameObject[] enemies;
 
-     float spawnPadding = 2f;
+    float gameTime;
+
+    float spawnPadding = 2f;
 
      float currentSpawnRateTimer;
 
@@ -25,16 +27,24 @@ public class EnemySpawner : MonoBehaviour
 
         GetBoxColliderCoordinates();
         currentSpawnRateTimer = spawnRateTimer;
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        gameTime += Time.deltaTime;
+
+        int minutes = Mathf.FloorToInt(gameTime / 60f);
+
+        maxAmountOfEnemies = 3 + minutes;
+
         if (currentSpawnRateTimer > 0)
         {
             currentSpawnRateTimer -= Time.deltaTime;
         }
-        else if (currentSpawnRateTimer <= 0)
+        else
         {
             StartCoroutine(SpawnEnemy());
             currentSpawnRateTimer = spawnRateTimer;
@@ -80,7 +90,7 @@ public class EnemySpawner : MonoBehaviour
                 enemiesSpawned++;
             }
 
-            Debug.Log(enemiesSpawned);
+           
             yield return null;
         }
     }

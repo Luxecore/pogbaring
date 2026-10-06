@@ -34,12 +34,7 @@ public class PlayerAttack : MonoBehaviour
 
         
     }
-    //Visar bara range
-    private void OnDrawGizmos()
-    { Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, _projectileData.range);
-    }
-   
+
     void AddEnemiesToList()
     {
         GameObject[] FoundEnemy = GameObject.FindGameObjectsWithTag("Enemy");
