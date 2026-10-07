@@ -13,7 +13,7 @@ public class FartScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.Rotate(0f, 0f, -25f * Time.deltaTime);
     }
 
     private void OnTriggerStay2D(Collider2D collision)

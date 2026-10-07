@@ -6,6 +6,8 @@ public class PilfinkMove : MonoBehaviour
     Transform target;
     NavMeshAgent agent;
 
+    SpriteRenderer spriteRenderer;
+
     float desiredDistance = 3.5f;
 
     private void Awake()
@@ -20,6 +22,7 @@ public class PilfinkMove : MonoBehaviour
         agent.updateUpAxis = false;
 
         agent.stoppingDistance = 0.2f;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -32,5 +35,17 @@ public class PilfinkMove : MonoBehaviour
 
         // Move towards that destination
         agent.SetDestination(destination);
+
+        // Flip depending on movement direction
+        if (agent.velocity.x > 0.01f)
+        {
+            // Moving right
+            spriteRenderer.flipX = false;
+        }
+        else if (agent.velocity.x < -0.01f)
+        {
+            // Moving left
+            spriteRenderer.flipX = true;
+        }
     }
 }
