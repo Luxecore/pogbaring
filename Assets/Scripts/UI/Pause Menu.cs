@@ -1,11 +1,14 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] InputAction pauseAction;
     [SerializeField] GameObject pauseMenu;
+
+    WorldTimer score;
     bool gamePaused = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -55,9 +58,10 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        Application.Quit();
-        
-        Debug.Log("Game Quit");
+        SceneManager.LoadScene(0);
+        Time.timeScale = 1.0f;
+        FindAnyObjectByType<WorldTimer>().SaveScore();
+
     }
 
     

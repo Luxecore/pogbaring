@@ -3,7 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-    EnemyData _enemyData;
+
+   
+
     public int health = 100;
    
 
@@ -20,6 +22,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void Die()
     {
+        FindAnyObjectByType<WorldTimer>().SaveScore();
         SceneManager.LoadScene(0);
     }
 }
