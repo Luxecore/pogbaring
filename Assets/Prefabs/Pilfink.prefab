@@ -227,3 +227,4 @@ MonoBehaviour:
   pilfinkHealth: 0
   projectilePrefab: {fileID: 1504874663182270630, guid: e39fe8a066c8c1c469d49aad04538fd9, type: 3}
   shootPoint: {fileID: 397095013902587865}
+  xpShard: {fileID: 4296249597859193975, guid: d9c7eeb96694b904b8faafc12440ccba, type: 3}

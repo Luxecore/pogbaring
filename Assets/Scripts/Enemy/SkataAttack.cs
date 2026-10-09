@@ -3,7 +3,7 @@ using UnityEngine;
 public class SkataAttack : MonoBehaviour , IDamageable
 {
     [SerializeField] EnemyData _enemyData;
-
+    [SerializeField] GameObject xpShard;
     public int skataHealth;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -15,8 +15,13 @@ public class SkataAttack : MonoBehaviour , IDamageable
     // Update is called once per frame
     void Update()
     {
-        if(skataHealth <= 0) 
+        if(skataHealth <= 0)
+        {
             Destroy(gameObject);
+            Instantiate(xpShard, transform.position, Quaternion.identity);
+
+
+        }
     }
 
     public void TakeDmg(int damage)

@@ -224,3 +224,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
   _enemyData: {fileID: 11400000, guid: 2fa4daa67433edd4a979df590353975c, type: 2}
+  xpShard: {fileID: 4296249597859193975, guid: d9c7eeb96694b904b8faafc12440ccba, type: 3}
+  skataHealth: 0

@@ -10,6 +10,8 @@ public class PilfinkAttack : MonoBehaviour, IDamageable
    
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] GameObject shootPoint;
+
+    [SerializeField] GameObject xpShard;
      float attackRange;
      float fireRate = 2f;
      
@@ -31,6 +33,9 @@ public class PilfinkAttack : MonoBehaviour, IDamageable
         if (pilfinkHealth <= 0)
         {
             Destroy(gameObject);
+            Instantiate(xpShard, transform.position, Quaternion.identity);
+           
+            
             return;
         }
 

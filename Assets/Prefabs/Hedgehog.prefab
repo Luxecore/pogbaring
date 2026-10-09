@@ -183,6 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::hedgehogAttack
   _enemyData: {fileID: 11400000, guid: 52c53b5ba67b54444886557762e8bace, type: 2}
+  xpShard: {fileID: 4296249597859193975, guid: d9c7eeb96694b904b8faafc12440ccba, type: 3}
   hedgehogHealth: 0
 --- !u!114 &3432324540630728455
 MonoBehaviour:
