@@ -4,6 +4,10 @@ public class MarlieScript : MonoBehaviour
 {
     [SerializeField] ProjectileData projectileData;
 
+    XPbar dmgMulti;
+
+    float dmg;
+
     [Header("Movement")]
     private float moveSpeed = 10f;
 
@@ -22,8 +26,15 @@ public class MarlieScript : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         player = GameObject.FindGameObjectWithTag("Pogba");
-    }
 
+        dmgMulti = GameObject.FindGameObjectWithTag("XPBar").GetComponent<XPbar>();
+
+        
+    }
+    private void Update()
+    {
+        dmg = projectileData.damage * dmgMulti.dmgMulti;
+    }
     private void FixedUpdate()
     {
         if (player == null)
@@ -49,11 +60,11 @@ public class MarlieScript : MonoBehaviour
 
             if (enemy != null)
             {
-                enemy.TakeDmg(projectileData.damage);
+                enemy.TakeDmg(dmg);
             }
         }
 
-        if (collision.CompareTag("WorldBoarder"))
+        if (collision.CompareTag("MarlieBoarder"))
         {
             TurnAround();
         }

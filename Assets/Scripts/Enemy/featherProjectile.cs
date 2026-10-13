@@ -6,7 +6,12 @@ public class Projectile : MonoBehaviour
 
     [SerializeField] float speed = 10f;
     [SerializeField] EnemyData _enemyData;
+    int lifeTime = 2;
 
+    private void Start()
+    {
+        Destroy(gameObject, lifeTime);
+    }
     public void SetDirection(Vector3 newDirection)
     {
         direction = newDirection.normalized;

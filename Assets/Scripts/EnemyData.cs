@@ -5,7 +5,7 @@ public class EnemyData : ScriptableObject
 {
     public int range;
 
-    public int health;
+    public float health;
 
     public int damage;
 }

@@ -4,7 +4,7 @@ public class SkataAttack : MonoBehaviour , IDamageable
 {
     [SerializeField] EnemyData _enemyData;
     [SerializeField] GameObject xpShard;
-    public int skataHealth;
+    public float skataHealth;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,7 +24,7 @@ public class SkataAttack : MonoBehaviour , IDamageable
         }
     }
 
-    public void TakeDmg(int damage)
+    public void TakeDmg(float damage)
     {
        skataHealth -= damage;
     }

@@ -8,11 +8,12 @@ TagManager:
   - Pogba
   - WorldBoarder
   - XPBar
+  - MarlieBoarder
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Tilemap
   - Water
   - UI
   - 

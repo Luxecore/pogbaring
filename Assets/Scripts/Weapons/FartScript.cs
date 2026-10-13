@@ -2,11 +2,15 @@ using UnityEngine;
 
 public class FartScript : MonoBehaviour
 {
-
+    XPbar dmgMulti;
     [SerializeField] ProjectileData projectileData;
+
+    float dmg;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        dmgMulti = GameObject.FindGameObjectWithTag("XPBar").GetComponent<XPbar>();
+
         
     }
 
@@ -14,6 +18,8 @@ public class FartScript : MonoBehaviour
     void Update()
     {
         transform.Rotate(0f, 0f, -25f * Time.deltaTime);
+        dmg = projectileData.damage * dmgMulti.dmgMulti;
+       
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -24,7 +30,7 @@ public class FartScript : MonoBehaviour
 
             if (enemy != null)
             {
-                enemy.TakeDmg(projectileData.damage);
+                enemy.TakeDmg(dmg);
               
             }
         }

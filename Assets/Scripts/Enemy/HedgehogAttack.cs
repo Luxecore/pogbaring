@@ -4,7 +4,7 @@ public class hedgehogAttack : MonoBehaviour, IDamageable
 {
     [SerializeField] EnemyData _enemyData;
     [SerializeField] GameObject xpShard;
-    public int hedgehogHealth;
+    public float hedgehogHealth;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,7 +24,7 @@ public class hedgehogAttack : MonoBehaviour, IDamageable
         }
     }
 
-    public void TakeDmg(int damage)
+    public void TakeDmg(float damage)
     {
         hedgehogHealth -= damage;
     }

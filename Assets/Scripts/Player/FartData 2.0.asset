@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bec955b0817fc7143ba621a406cf97da, type: 3}
-  m_Name: FartData
+  m_Name: FartData 2.0
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileData
   damage: 5
   projectileSpeed: 0

@@ -3,10 +3,20 @@ using UnityEngine;
 public class PukeScript : MonoBehaviour
 {
     [SerializeField] ProjectileData projectileData;
+    XPbar dmgMulti;
 
+    float dmg;
     void Start()
     {
         Destroy(gameObject, projectileData.projectileLifetime);
+
+        dmgMulti = GameObject.FindGameObjectWithTag("XPBar").GetComponent<XPbar>();
+
+        dmg = projectileData.damage * dmgMulti.dmgMulti;
+    }
+    private void Update()
+    {
+        dmg = projectileData.damage * dmgMulti.dmgMulti;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -17,7 +27,7 @@ public class PukeScript : MonoBehaviour
 
             if (enemy != null)
             {
-                enemy.TakeDmg(projectileData.damage);
+                enemy.TakeDmg(dmg);
                 Destroy(gameObject);
             }
         }

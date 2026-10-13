@@ -5,7 +5,7 @@ public class PilfinkAttack : MonoBehaviour, IDamageable
     [SerializeField] EnemyData enemyData;
 
     
-    public int pilfinkHealth;
+    public float pilfinkHealth;
 
    
     [SerializeField] GameObject projectilePrefab;
@@ -69,7 +69,7 @@ public class PilfinkAttack : MonoBehaviour, IDamageable
         }
     }
 
-    public void TakeDmg(int damage)
+    public void TakeDmg(float damage)
     {
         pilfinkHealth -= damage;
     }
